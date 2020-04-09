@@ -26,10 +26,21 @@ using Statistics
 using StatsBase
 using Zygote
 
+
+# the version that works
+# @init @require PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0" begin
+#     @init @require PyPlot="d330b81b-6aea-500a-939a-2ce795aea3ee" begin
+#         using .PyPlot
+#         using .PyCall
+#     end
+# end
+
+# the version that errors
 @init @require PyPlot="d330b81b-6aea-500a-939a-2ce795aea3ee" begin
-    using PyCall
-    using PyPlot
-    import PyPlot: loglog, plot, semilogx, semilogy
+    using .PyPlot
+    using .PyPlot.PyCall
 end
+
+
 
 end
